@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doctor pricription made easy</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <main>
+        <h1>Doctor pricription made easy</h1>
+        <form id="gemini-form">  <div class="image-picker">
+                <input type="file" id="real-file" hidden="hidden" accept="image/*" /> <button type="button" id="custom-button">CHOOSE A FILE</button>
+                <span id="custom-text">No file chosen yet.</span>
+            </div>
+
+
+            <div id="image-previews" class="image-preview-container"></div>  
+
+            <div class="prompt-box">
+              <label for="prompt" style="display: none;">Enter instructions here:</label>
+              <input name="prompt" id="prompt" type="text" 
+                     value="Analyze the attached handwritten medical prescription and provide the following:
+          A transcription of the text, noting any illegible or uncertain portions.
+          A list of potential medications prescribed, along with their likely dosages and intended use (if discernible). Note that this is an interpretation and should not be taken as medical advice.
+          An explanation of any medical abbreviations or jargon used in the prescription.
+          An assessment of the legibility of the handwriting and any challenges encountered in interpreting the prescription.
+          Suggest ways this prescription could be improved for clarity and reduced risk of misinterpretation." 
+                     style="display: none;">
+              <button type="submit">Go</button>
+          </div>
+        </form>
+        <div class="output">(Results will appear here)</div> </main>
+
+    <script src="https://unpkg.com/markdown-it@8.4.2/dist/markdown-it.min.js"></script>
+    <script src="https://unpkg.com/base64-js@1.3.0/base64js.min.js"></script>
+    <script type="module" src="/main.js"></script>
+</body>
+
+</html>
