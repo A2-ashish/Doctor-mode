@@ -4,31 +4,20 @@ import os
 import google.generativeai as genai
 from flask import Flask, jsonify, request, send_file, send_from_directory
 
-# 🔥🔥 FILL THIS OUT FIRST! 🔥🔥
-# Get your Gemini API key by:
-# - Selecting "Add Gemini API" in the "Project IDX" panel in the sidebar
-# - Or by visiting https://g.co/ai/idxGetGeminiKey
-API_KEY = "AIzaSyCr4cw7OiB3b0Viri2PSQcBX6MT8TbKNY8"
+API_KEY = "apikey"
 
 genai.configure(api_key=API_KEY)
 
 app = Flask(__name__)
 
-
 @app.route("/")
 def index():
     return send_file('web/index.html')
 
-
 @app.route("/api/generate", methods=["POST"])
 def generate_api():
     if request.method == "POST":
-        if API_KEY == 'TODO':
-            return jsonify({ "error": '''
-                To get started, get an API key at
-                https://g.co/ai/idxGetGeminiKey and enter it in
-                main.py
-                '''.replace('\n', '') })
+       
         try:
             req_body = request.get_json()
             content = req_body.get("contents")
